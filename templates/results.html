@@ -2,20 +2,22 @@
 {% block content %}
 
 <div class="container">
-    {% for movie in recommended_movies %}
-    {% if loop.index % 5 == 1 %}
-    <div class="row">
+    {% set num_cols = 4 %}
+    {% set col_width = 12 // num_cols %}
+    {% for movie in movies %}
+    {% if loop.index % num_cols == 1 %}
+    <div class="card-group">
         {% endif %}
-        <div class="col-sm-12 col-md-6 col-lg-4">
-            <div class="card">
-                <img class="card-img-top" src="{{ movie.poster }}" alt="{{ movie.title }} poster">
-                <div class="card-body">
-                    <h5 class="card-title">{{ movie.title }}</h5>
-                    <p class="card-text">{{ movie.description }}</p>
-                </div>
+        <div class="card" style="width: 18rem;">
+            <div class="card-body">
+                <h5 class="card-title">{{movie.title}}</h5>
+                <h6 class="card-subtitle mb-2 text-muted">{{ movie.year }}</h6>
+                <h6 class="card-subtitle mb-2 text-muted">{{ movie.genre }}</h6>
+                <p class="card-text">{{ movie.description }}</p>
+                <a href="{{movie.link}}" class="card-link">IMDB</a>
             </div>
         </div>
-        {% if loop.index % 3 == 0 or loop.last %}
+        {% if loop.index % num_cols == 0 or loop.last %}
     </div>
     {% endif %}
     {% endfor %}

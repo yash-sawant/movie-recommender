@@ -2,21 +2,21 @@ import pandas as pd
 from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
 import pandas as pd
-
-# Read the movie data CSV file into a Pandas DataFrame
-movies_df = pd.read_csv('dataset/25k IMDb movie Dataset.csv')
-
-# Clean the movie titles by removing any extra whitespace and converting to lowercase
-movies_df['movie title'] = movies_df['movie title'].apply(lambda x: x.strip().lower())
+from db_funcs import movies_df
 
 
-def get_random_movies(title):
-    pd.read
-    return movies_df.sample()
+def get_recommendations(title, rating, genre, year):
+    return get_random_movies()
+
+
+def get_random_movies():
+    return movies_df.sample(30)
+
 
 # Define a function to get a movie's index based on its title
 def get_movie_index(title):
     return movies_df[movies_df['movie title'] == title.strip().lower()].index.values[0]
+
 
 # Define a function to get similar movies based on a movie title
 def get_similar_movies(title):
@@ -38,8 +38,8 @@ def get_similar_movies(title):
 
     return similar_movie_titles
 
-if __name__ == '__main__':
 
+if __name__ == '__main__':
     # Get similar movies based on a movie title
     similar_movies = get_similar_movies('The Godfather')
 

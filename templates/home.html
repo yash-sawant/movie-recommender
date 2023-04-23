@@ -5,12 +5,12 @@
     <div class="form-group">
         <label for="movie-search">Search for a movie:</label>
         <input type="text" class="form-control" id="movie-search" name="movie_search"
-               placeholder="Type a movie title...">
+               placeholder="Type a movie title and wait for autofill to load..." required>
         <div id="movie-results"></div>
     </div>
     <div class="form-group">
-        <label for="movie-genre">Movie Genre:</label>
-        <select class="form-control" id="movie-genre" name="movie_genre">
+        <label for="movie-genre">Movie Genre: (Use CTRL to select multiple)</label>
+        <select multiple class="form-control custom-select" id="movie-genre" name="movie_genre" required>
             {% for genre in genres %}
             <option value="{{ genre }}">{{ genre }}</option>
             {% endfor %}

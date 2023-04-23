@@ -1,11 +1,16 @@
 # Movie Recommendation System
 
-This is a movie recommendation system built using Flask and Bootstrap. The system allows users to input their movie preferences and receive recommendations based on similar movies.
+This is a movie recommendation system built using Flask and Bootstrap. The system allows users to input their movie preferences and receive recommendations based on similar movies. The app was deployed using Flask and Bootstrap on Google Cloud Run.
 
 [![Check it out live][run_img]][run_link]
 
 [run_img]: https://storage.googleapis.com/cloudrun/button.svg
 [run_link]: https://movie-recommender-pssahwnxxa-pd.a.run.app
+
+The project uses an ensemble of 3 methods to generate weighted scores for similarity to other movies based on user preferences. 
+Method 1 applies cosine similarity on BERT-encoded text for 'Overview' with 'Plot Keywords' columns appended, resulting in dense vectors that represent the movies' overviews. 
+Method 2 uses CountVectorizer to extract features from the concatenated genre string for each movie, resulting in genre vectors that represent the frequency of genre labels. 
+Method 3 uses a character-level CountVectorizer to match input titles with a database of titles, resulting in vector representations that are used to calculate similarity scores. The ensemble of these methods generates weighted scores that can be used to rank movies based on their similarity to the user's preferences. 
 
 ## Getting Started
 

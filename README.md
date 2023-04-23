@@ -1,7 +1,6 @@
 # Movie Recommendation System
 
-This is a movie recommendation system built using Flask and Bootstrap. The system allows users to input their movie preferences and receive recommendations based on similar movies. The app was deployed using Flask and Bootstrap on Google Cloud Run.
-
+This is a movie recommendation system built using Flask and Bootstrap and deployed on a Googlee Cloud Run. The system allows users to input their movie preferences and receive recommendations based on similar movies
 [![Check it out live][run_img]][run_link]
 
 [run_img]: https://storage.googleapis.com/cloudrun/button.svg
